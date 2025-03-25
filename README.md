@@ -6,7 +6,7 @@ docker exec -it 代号 bash
 #### 导航到工作空间下，编译
 
 ```bash
-cd /workspace/NeuralSymbol_AI
+cd /workspace
 source devel/setup.bash
 conda activate ros-python
 ```
@@ -31,11 +31,6 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true filters:=hole_fil
 ```
 
 #### 运行手眼标定程序，发布转换关系
-
-首先需要将`/src/easy_handeye/easy_handeye/launch/ur10e_camera_handeyecalibration_eye_on_hand.yaml `文件移动到`/home/user/.ros/easy_handeye `目录下
-
-之后运行
-
 ```bash
 roslaunch easy_handeye publish.launch
 ```
@@ -67,5 +62,5 @@ python vae_server.py
 #### 运行`nsplanner.py` (进行基于神经符号学的拆解规划)
 
 ```bash
-rosrun ur_control test_task.py 
+python /src/Project/UR_control/scripts/test_task.py 
 
