@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="robot_A/ur10e_robot">
+
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro"/>
+  <xacro:ur10e_robot prefix="" />
+  <!-- <xacro:include filename="$(find ur_description)/urdf/battery_pack_sleeve/endeffector.urdf.xacro" /> -->
+  <xacro:include filename="$(find end_effector)/urdf/end_effector.urdf" />
+  <link name="robot_A/ground_plane_box">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <!--    <box size="3 3 0.05"/>      -->
+          <box size="0.2 0.2 0.05"/>
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.05"/>
+        </geometry>
+      </collision>
+  </link>
+  <joint name="robot_A/ground_plane_box" type="fixed">
+      <parent link="robot_A/base" />
+      <child link="robot_A/ground_plane_box" />
+      <origin xyz="0 0 -0.05" rpy="0 0 0" />
+  </joint>
+
+  <joint name="robot_A/ur_socket_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0  -1.57   1.57  " />
+    <parent link="robot_A/wrist_3_link"/>
+    <child link="robot_A/pneumatic_base_link"/>
+  </joint>
+
+</robot>

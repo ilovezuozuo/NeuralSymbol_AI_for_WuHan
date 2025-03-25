@@ -1,0 +1,21 @@
+本操作手册适用于  NeuralSymbol_AI  文件及其 配套硬件 的启动。
+
+1. 旋转红色旋钮，启动电控柜。同时启动主机。
+2. 启动机器人-示教器。 并给机器人上电，等待播放上位机控制程序。
+3. 电脑打开终端，按照readme所述，进入docker，进入workspace，进入conda环境，记得要source。
+	启动所有依赖项（算上roscore目前8个，有拓展会更多。后续建议使用bash launching.sh启动）。
+4. 示教器上面选择external_control程序，并点击播放。
+5. 主程序test_task.py中，更改待拆解目标区域的一个粗位姿，并运行主程序。
+
+
+
+
+
+
+
+
+
+Tips：
+1. 终端上执行的所有roslaunch或者python程序，都要记得进入docker，进入workspace，进入conda环境，然后source。
+2. 我们的所有环境都在docker的容器里，代码NeuralSymbol_AI都在宿主机上，代码NeuralSymbol_AI文件夹挂载在容器里的workspace
+3. 后续开发，如果有新添加的环境，要去容器里的ros-python中（mini-conda管理），宿主机上没有任何环境。
