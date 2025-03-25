@@ -67,5 +67,5 @@ python vae_server.py
 #### 运行`nsplanner.py` (进行基于神经符号学的拆解规划)
 
 ```bash
-rosrun ur_control true_task_1.py 
+rosrun ur_control test_task.py 
 
